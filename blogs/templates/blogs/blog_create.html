@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Blog Post - PostPal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog_create_styles.css' %}">
+</head>
+<body>
+    <header>
+        {% include "blogs/elements/base_header.html" %}
+    </header>
+
+
+    <main class="main">
+        <h2>Create a New Blog Post</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <a href="{% url 'blogs:home' %}" class="btn return-home">Back to Blog List</a>
+    </main>
+
+    <footer>
+        {% include "blogs/elements/base_footer.html" %}
+    </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostPal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        {% include "blogs/elements/base_header.html" %}
+    </header>
+
+    <main>
+        <div class="filter-search">
+            <form method="GET" action="{% url 'blogs:home' %}">
+                <input type="text" name="search" placeholder="Search title or content" value="{{ request.GET.search }}">
+                <select name="tag">
+                    <option value="">All Tags</option>
+                    {% for tag_value, tag_name in tags %}
+                        <option value="{{ tag_value }}" {% if tag_value == request.GET.tag %}selected{% endif %}>{{ tag_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <ul class="article-list">
+            <!-- TODO: show blog list -->
+        </ul>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <form method="GET" style="display: inline;">
+                        <input type="hidden" name="page" value="1">
+                        {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
+                        {% if request.GET.tag %}<input type="hidden" name="tag" value="{{ request.GET.tag }}">{% endif %}
+                        <button type="submit" class="pagination-btn">First</button>
+                    </form>
+                    <form method="GET" style="display: inline;">
+                        <input type="hidden" name="page" value="{{ page_obj.previous_page_number }}">
+                        {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
+                        {% if request.GET.tag %}<input type="hidden" name="tag" value="{{ request.GET.tag }}">{% endif %}
+                        <button type="submit" class="pagination-btn">Previous</button>
+                    </form>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <form method="GET" style="display: inline;">
+                        <input type="hidden" name="page" value="{{ page_obj.next_page_number }}">
+                        {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
+                        {% if request.GET.tag %}<input type="hidden" name="tag" value="{{ request.GET.tag }}">{% endif %}
+                        <button type="submit" class="pagination-btn">Next</button>
+                    </form>
+                    <form method="GET" style="display: inline;">
+                        <input type="hidden" name="page" value="{{ page_obj.paginator.num_pages }}">
+                        {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
+                        {% if request.GET.tag %}<input type="hidden" name="tag" value="{{ request.GET.tag }}">{% endif %}
+                        <button type="submit" class="pagination-btn">Last</button>
+                    </form>
+                {% endif %}
+            </span>
+        </div>
+    </main>
+
+    <footer>
+        {% include "blogs/elements/base_footer.html" %}
+    </footer>
+</body>
+</html>

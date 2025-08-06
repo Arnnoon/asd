@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Set the height of html and body */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #35424a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+.header-buttons {
+    margin: 10px 0;
+}
+
+.btn {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #5bc0de;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #31b0d5;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    flex: 1; /* Allow main to grow and fill the space */
+    padding: 20px;
+}
+
+.blog-detail {
+    background: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-detail h2 {
+    margin-top: 0; /* Remove top margin for consistency */
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Centers items vertically */
+    font-size: 0.9em; /* Adjust font size */
+    color: #777; /* Change text color */
+    margin-bottom: 15px; /* Add some space below the meta info */
+}
+
+.meta-info p {
+    margin: 0; /* Remove default margin for better alignment */
+}
+
+.blog-content {
+    line-height: 1.8; /* Improve readability of the content */
+}
+
+.related-blogs {
+    margin-top: 30px;
+}
+
+.related-blogs h3 {
+    margin-top: 0;
+}
+
+.related-blogs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.related-blogs li {
+    margin: 5px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #35424a;
+    color: white;
+}
+
+footer p {
+    margin: 0; /* Remove default margin for better alignment */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .blog-detail {
+        padding: 15px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+}
+
+.comments-section {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.comment-item:last-child {
+    border-bottom: none; /* Remove border for the last comment */
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 10px;
+}
+
+.comment-form button {
+    width: auto; /* Button width adjusts based on content */
+}
+
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 8px 12px;
+    }
+
+    .blog-detail {
+        margin: 10px;
+    }
+
+    .meta-info {
+        flex-direction: column; /* Stack meta info on smaller screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .date {
+        font-size: 0.8em;
+    }
+}

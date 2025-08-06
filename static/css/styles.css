@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Set the height of html and body */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #35424a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+.header-buttons {
+    margin: 10px 0;
+}
+
+.btn {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #5bc0de;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #31b0d5;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    flex: 1; /* Allow main to grow and fill the space */
+    padding: 20px;
+}
+
+.article-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.article-item {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.article-item h3 {
+    margin: 0;
+}
+
+.date {
+    font-size: 0.9em;
+    color: #777;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #35424a;
+    color: white;
+}
+
+.author {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.comments {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    align-items: center; /* Centers items vertically */
+    font-size: 0.9em; /* Adjust font size */
+    color: #777; /* Change text color */
+}
+
+.meta-info p {
+    margin: 0; /* Remove default margin for better alignment */
+    padding-right: 5px; /* Decrease spacing between elements */
+}
+
+.meta-info p:last-child {
+    padding-right: 0; /* Remove padding from the last item */
+}
+
+.tag {
+    display: inline-block;
+    background-color: #1d6be8;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.filter-search {
+    margin: 20px 0;
+}
+
+.filter-search input[type="text"],
+.filter-search select {
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.filter-search button {
+    padding: 10px;
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pagination form {
+    display: inline;
+}
+
+.pagination-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.pagination-btn:hover {
+    background-color: #16a0ca;
+}
+
+.pagination .current {
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: inline-block;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #62a0af;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .article-list {
+        margin: 10px;
+    }
+
+    .article-item {
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 8px 12px;
+    }
+
+    .article-item {
+        margin: 5px 0;
+    }
+
+    .date {
+        font-size: 0.8em;
+    }
+}

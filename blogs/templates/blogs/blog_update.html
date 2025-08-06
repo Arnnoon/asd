@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog - PostPal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog_detail_styles.css' %}">
+</head>
+<body>
+    <header>
+        {% include "blogs/elements/base_header.html" %}
+    </header>
+
+    <main class="main">
+        <h2>Edit Blog Post</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields -->
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+        <a href="{% url 'blogs:blog-detail' uuid=object.uuid %}" class="btn return-home">Cancel</a> <!-- Back to detail -->
+    </main>
+
+    <footer>
+        {% include "blogs/elements/base_footer.html" %}
+    </footer>
+</body>
+</html>
