@@ -1,36 +1,28 @@
-from django.urls import reverse
-from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-from .models import User
 
-
-class CustomLoginView(LoginView):
+class UserLoginView(LoginView):
     """
-    CustomLoginView: for user login
+    UserLoginView: for logging in users
     """
     template_name = 'accounts/login.html'
-    
-    def get_success_url(self):
-        return reverse('home')
+    redirect_authenticated_user = True
+    next_page = reverse_lazy('blogs:home')
 
 
-class CustomLogoutView(LogoutView):
+class UserRegisterView(CreateView):
     """
-    CustomLogoutView: for user logout
+    UserRegisterView: for registering users
+        - use template 'accounts/register.html'
+        - use form for creating users
     """
-    def get_success_url(self):
-        return reverse('home')
-
-
-class RegisterView(CreateView):
-    """
-    RegisterView: for user registration
-    """
-    model = User
     form_class = UserCreationForm
     template_name = 'accounts/register.html'
-    
-    def get_success_url(self):
-        return reverse('login')
+    success_url = reverse_lazy('user_accounts:login')
+
+
+class UserLogoutView(LogoutView):
+    next_page = reverse_lazy('user_accounts:login')
